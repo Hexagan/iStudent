@@ -1,3 +1,5 @@
 # iStudent
 App móvil para estudiantes, gestiona próximos vencimientos, calificaciones, presentismo y más. 
-[TP_Final_Integrador-1.pdf](https://github.com/user-attachments/files/20761339/TP_Final_Integrador-1.pdf)
+![image](https://github.com/user-attachments/assets/a1c3ce3f-1fe5-47c3-ba68-ed6b3218bbee)
+
+
