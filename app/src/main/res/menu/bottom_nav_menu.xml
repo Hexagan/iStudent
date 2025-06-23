@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_vencimientos"
+        android:icon="@drawable/ic_vencimientos"
+        android:title="Vencimientos" />
+    <item android:id="@+id/nav_cronograma"
+        android:icon="@drawable/ic_cronograma"
+        android:title="Cronograma" />
+    <item android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+    <item android:id="@+id/nav_calificaciones"
+        android:icon="@drawable/ic_calificaciones"
+        android:title="Calificaciones" />
+    <item android:id="@+id/nav_presentismo"
+        android:icon="@drawable/ic_presentismo"
+        android:title="Presentismo" />
+</menu>

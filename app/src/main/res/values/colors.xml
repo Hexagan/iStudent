@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="azul_promocionado">#00CFF0</color>
+    <color name="verde_zona_promocion">#C2F236</color>
+    <color name="violeta_regular">#B040C9</color>
+    <color name="rojo_libre">#E23A38</color>
+</resources>

@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:padding="8dp">
+
+        <!-- Encabezado Días -->
+        <TableRow>
+            <TextView android:text="" />
+            <TextView android:text="Lu" />
+            <TextView android:text="Ma" />
+            <TextView android:text="Mi" />
+            <TextView android:text="Ju" />
+            <TextView android:text="Vi" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="18:00" />
+            <TextView android:text="" />
+            <TextView android:text="" />
+            <TextView android:text="" />
+            <TextView android:text="" />
+            <TextView android:text="Vi" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="20:00" />
+            <TextView android:text="Lu" />
+            <TextView android:text="Ma" />
+            <TextView android:text="Mi" />
+            <TextView android:text="Ju" />
+            <TextView android:text="Vi" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="20:10" />
+            <TextView android:text="Lu" />
+            <TextView android:text="Ma" />
+            <TextView android:text="Mi" />
+            <TextView android:text="Ju" />
+            <TextView android:text="Vi" />
+        </TableRow>
+        <TableRow>
+            <TextView android:text="22:00" />
+            <TextView android:text="Lu" />
+            <TextView android:text="Ma" />
+            <TextView android:text="Mi" />
+            <TextView android:text="Ju" />
+            <TextView android:text="Vi" />
+        </TableRow>
+    </TableLayout>
+    <include layout="@layout/bottom_navigation" />
+</LinearLayout>
+

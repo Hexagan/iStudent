@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/calificacionesLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    tools:context=".CalificacionesActivity">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/textTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calificaciones"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="8dp" />
+
+    <!-- Encabezado de la grilla -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:background="#EEEEEE"
+        android:padding="4dp">
+
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Mat" android:gravity="center" android:textStyle="bold" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Pa1" android:gravity="center" android:textStyle="bold" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TP1" android:gravity="center" android:textStyle="bold" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Pa2" android:gravity="center" android:textStyle="bold" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TP2" android:gravity="center" android:textStyle="bold" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Prom" android:gravity="center" android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCalificaciones"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingVertical="4dp"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_calification_row" />
+
+
+    <!-- Leyenda de colores -->
+    <LinearLayout
+        android:id="@+id/leyenda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <View android:layout_width="20dp" android:layout_height="20dp" android:background="@color/azul_promocionado" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Promocionado (7+)" android:paddingStart="8dp" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <View android:layout_width="20dp" android:layout_height="20dp" android:background="@color/verde_zona_promocion" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Zona de Promoción (6-7)" android:paddingStart="8dp" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <View android:layout_width="20dp" android:layout_height="20dp" android:background="@color/violeta_regular" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Regular (4–5)" android:paddingStart="8dp" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <View android:layout_width="20dp" android:layout_height="20dp" android:background="@color/rojo_libre" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Libre (-4)" android:paddingStart="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Barra de navegación inferior -->
+    <include layout="@layout/bottom_navigation" />
+
+</LinearLayout>

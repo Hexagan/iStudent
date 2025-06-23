@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="4dp">
+
+    <TextView
+        android:id="@+id/materia"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/borde_celda"
+        android:text="PRU" />
+
+    <TextView
+        android:id="@+id/pa1"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/borde_celda"
+        android:text="9" />
+
+    <TextView
+        android:id="@+id/tp1"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/borde_celda"
+        android:text="6" />
+
+    <TextView
+        android:id="@+id/pa2"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/borde_celda"
+        android:text="5" />
+
+    <TextView
+        android:id="@+id/tp2"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/borde_celda"
+        android:text="10" />
+
+    <TextView
+        android:id="@+id/prom"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/borde_celda"
+        android:text="7.5" />
+</LinearLayout>
