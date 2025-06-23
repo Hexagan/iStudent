@@ -1,0 +1,17 @@
+package ar.com.ifts18.istudent
+
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.Fragment
+
+class CronogramaFragment : Fragment(R.layout.fragment_cronograma) {
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Acá podés acceder a elementos de la vista con: view.findViewById(...)
+        // Por ejemplo:
+        // val texto = view.findViewById<TextView>(R.id.tu_textview)
+        // texto.text = "¡Hola desde el fragment!"
+    }
+}

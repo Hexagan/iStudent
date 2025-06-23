@@ -50,6 +50,6 @@
             <TextView android:text="Vi" />
         </TableRow>
     </TableLayout>
-    <include layout="@layout/bottom_navigation" />
+
 </LinearLayout>
 
