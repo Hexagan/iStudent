@@ -10,4 +10,8 @@
     <color name="rojo">#E23A38</color>
     <color name="gris_claro">#E0E0E0</color>
     <color name="gris_oscuro">#808080</color>
+    <color name="promocionado_color">#00DAF4</color>
+    <color name="zona_promocion_color">#00FF0A</color>
+    <color name="regular_color">#FFEB3B</color>
+    <color name="libre_color">#D52337</color>
 </resources>

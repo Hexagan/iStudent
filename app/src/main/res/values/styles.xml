@@ -10,4 +10,33 @@
         <item name="android:textColor">#000</item>
         <item name="android:layout_margin">0dp</item>
     </style>
+    <style name="LegendRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingVertical">4dp</item>
+    </style>
+
+    <style name="LegendColorBox">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+    </style>
+
+    <style name="LegendColorBox.Cyan">
+        <item name="android:background">#80DEEA</item> </style>
+    <style name="LegendColorBox.Green">
+        <item name="android:background">#C8E6C9</item> </style>
+    <style name="LegendColorBox.Purple">
+        <item name="android:background">#E1BEE7</item> </style>
+    <style name="LegendColorBox.Red">
+        <item name="android:background">#FFCDD2</item> </style>
+
+    <style name="LegendText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
 </resources>

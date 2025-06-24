@@ -6,5 +6,5 @@ data class Calificacion(
     val tp1: Int,
     val pa2: Int,
     val tp2: Int,
-    val promedio: Float
+    val promedio: Double
 )

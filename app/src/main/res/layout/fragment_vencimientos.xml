@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:layout_margin="4dp">
 
     <LinearLayout
@@ -46,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="Desarrollo de Aplicaciones para Disp. Móbiles"
                 android:textColor="#000000"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
 
         </LinearLayout>
@@ -69,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:text="Metodología de Pruebas de Sistemas"
                 android:textColor="#000000"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -90,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:text="Tecnologías de la Información y Comunicación"
                 android:textColor="#000000"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -111,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:text="Taller de la Comunicación"
                 android:textColor="#000000"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -132,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:text=" Práctica Profesional I"
                 android:textColor="#000000"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -155,7 +156,7 @@
                 android:layout_marginEnd="30dp"
                 android:text="Parcial"
                 android:textColor="#000000"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="16dp"
@@ -166,10 +167,10 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Trabajo Practico"
                 android:textColor="#000000"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>
