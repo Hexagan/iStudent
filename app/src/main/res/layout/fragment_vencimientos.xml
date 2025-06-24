@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:text="Calendario de Eventos"
+            android:text="Calendario de Vencimientos"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -171,43 +171,5 @@
                 android:textColor="#000000"
                 android:textSize="16sp" />
         </LinearLayout>
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/bottom_navigation"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            app:menu="@menu/bottom_nav_menu"
-            app:labelVisibilityMode="unlabeled"
-            android:background="?android:attr/windowBackground"/>
-
-    </LinearLayout>
-</FrameLayout>
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="3"
-        android:orientation="vertical"
-        android:background="@color/azul_promocionado"
-        android:padding="12dp"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/textViewFecha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="15"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:gravity="center" />
-
-        <TextView
-            android:id="@+id/textViewMateria"
-            android:layout_width="10dp"
-            android:layout_height="4dp"
-            android:gravity="center"
-            android:text="Matemática"
-            android:textSize="14sp" />
-
     </LinearLayout>
 </FrameLayout>

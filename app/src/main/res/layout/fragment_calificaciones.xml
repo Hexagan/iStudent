@@ -61,17 +61,17 @@
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-            <View android:layout_width="20dp" android:layout_height="20dp" android:background="@color/verde_zona_promocion" />
+            <View android:layout_width="20dp" android:layout_height="20dp" android:background="@color/verde" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Zona de Promoción (6-7)" android:paddingStart="8dp" />
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-            <View android:layout_width="20dp" android:layout_height="20dp" android:background="@color/violeta_regular" />
+            <View android:layout_width="20dp" android:layout_height="20dp" android:background="@color/violeta" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Regular (4–5)" android:paddingStart="8dp" />
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-            <View android:layout_width="20dp" android:layout_height="20dp" android:background="@color/rojo_libre" />
+            <View android:layout_width="20dp" android:layout_height="20dp" android:background="@color/rojo" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Libre (-4)" android:paddingStart="8dp" />
         </LinearLayout>
     </LinearLayout>

@@ -3,7 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="azul_promocionado">#00CFF0</color>
-    <color name="verde_zona_promocion">#C2F236</color>
-    <color name="violeta_regular">#B040C9</color>
-    <color name="rojo_libre">#E23A38</color>
+    <color name="azul">#001FFD</color>
+    <color name="amarillo">#FFF100</color>
+    <color name="verde">#48FF00</color>
+    <color name="violeta">#B040C9</color>
+    <color name="rojo">#E23A38</color>
+    <color name="gris_claro">#E0E0E0</color>
+    <color name="gris_oscuro">#808080</color>
 </resources>
