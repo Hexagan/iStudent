@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+
+    <!-- Código materia -->
+    <TextView
+        android:id="@+id/tvCodigo"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/bg_celda_borde"
+        android:text="PRU"
+        android:padding="1dp"
+        android:textStyle="bold"/>
+
+    <!-- Asistencia -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:background="@drawable/bg_celda_borde"
+        android:padding="1dp">
+
+        <View
+            android:id="@+id/viewAsistenciaColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/tvAsistencia"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="24"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <!-- Faltas -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:background="@drawable/bg_celda_borde"
+        android:padding="1dp">
+
+        <View
+            android:id="@+id/viewFaltasColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/tvFaltas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="24"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <!-- Porcentaje -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:background="@drawable/bg_celda_borde"
+        android:padding="1dp">
+
+        <View
+            android:id="@+id/viewPorcentajeColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/tvPorcentaje"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="24"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <!-- Estado -->
+    <TextView
+        android:id="@+id/tvEstado"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="1dp"
+        android:background="@drawable/bg_celda_borde"/>
+</LinearLayout>
