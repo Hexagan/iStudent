@@ -43,4 +43,5 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="desc_acerca_de">Esta aplicación fue desarrollada para otorgar a los estudiantes una herramienta útil donde puedan consultar información importante sobre su cursada. \n\nEntre sus funcionalidades se encuentran:\n1. Visualizar calificaciones. \n2. Control de presentismo.\n3. Acceso a vencimientos importantes. \n4. Consulta del cronograma de materias. \n\nDiseñada con el propósito de facilitar el seguimiento académico y mejorar la organización del estudiante.</string>
 </resources>
