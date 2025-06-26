@@ -33,7 +33,7 @@ class CalificacionesFragment : Fragment(R.layout.fragment_calificaciones) { //
         val dummyData = listOf( //
             Calificacion("Prueba de Sistemas", 9, 6, 5, 10, 7.5), //
             Calificacion("Desarrollo Mobile", 7, 5, 6, 6, 6.0), //
-            Calificacion("Tecnologias de la información", 9, 1, 5, 2, 4.25), //
+            Calificacion("Tecnologias de la Información", 9, 1, 5, 2, 4.25), //
             Calificacion("Taller de Comunicación", 8, 7, 4, 10, 7.25), //
             Calificacion("Práctica Profesional I", 7, 1, 2, 5, 3.75) // Ejemplo con promedio bajo para probar color "Libre"
         )

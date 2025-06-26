@@ -19,7 +19,7 @@
         android:padding="0dp">
     <TextView
         android:id="@+id/materia"
-        android:layout_width="8dp"
+        android:layout_width="20dp"
         android:layout_height="65dp"
         android:layout_weight="1"
         android:gravity="center"
