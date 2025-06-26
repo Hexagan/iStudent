@@ -18,37 +18,91 @@
     android:textSize="22sp"
     android:textStyle="bold"
     android:gravity="center"
-    android:paddingTop="50dp"
+    android:paddingTop="100dp"
     android:layout_gravity="center"
     android:paddingBottom="8dp">
 
     </TextView>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="385dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="6"
-        android:background="#EEEEEE"
-        android:padding="0dp"> <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Mat" android:gravity="center" android:textStyle="bold" android:background="@drawable/borde_celda" android:padding="4dp" />
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Pa1" android:gravity="center" android:textStyle="bold" android:background="@drawable/borde_celda" android:padding="4dp" />
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TP1" android:gravity="center" android:textStyle="bold" android:background="@drawable/borde_celda" android:padding="4dp" />
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Pa2" android:gravity="center" android:textStyle="bold" android:background="@drawable/borde_celda" android:padding="4dp" />
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TP2" android:gravity="center" android:textStyle="bold" android:background="@drawable/borde_celda" android:padding="4dp" />
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Prom" android:gravity="center" android:textStyle="bold" android:background="@drawable/borde_celda" android:padding="4dp" />
+        android:background="@color/gris_claro">
+
+        <TextView
+            android:layout_width="8dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:text="Materia"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@drawable/borde_celda"
+            android:padding="4dp" />
+
+        <TextView
+            android:layout_width="8dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:background="@drawable/borde_celda"
+            android:gravity="center"
+            android:text="Parcial 1"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="8dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:text="TP N°1"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@drawable/borde_celda"
+            android:padding="4dp" />
+        <TextView
+            android:layout_width="8dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:text="Parcial 2"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@drawable/borde_celda"
+ />
+        <TextView
+            android:layout_width="8dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:text="TP N°2"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@drawable/borde_celda"
+            android:padding="4dp" />
+
+        <TextView
+            android:layout_width="10dp"
+            android:layout_height="65dp"
+            android:layout_weight="1"
+            android:background="@drawable/borde_celda"
+            android:gravity="center"
+            android:text="Promedio"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCalificaciones"
         android:layout_width="match_parent"
-        android:layout_height="0dp" android:layout_weight="1" android:paddingVertical="4dp"
-        android:clipToPadding="false" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" tools:listitem="@layout/item_calification_row" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingVertical="4dp"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_calification_row" />
 
     <LinearLayout
         android:id="@+id/leyenda"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingBottom="50dp"
         android:paddingTop="8dp">
 
         <LinearLayout
@@ -58,6 +112,7 @@
             <View
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:layout_gravity="center"
                 android:background="@color/azul_promocionado" />
             <TextView
                 android:layout_width="wrap_content"
@@ -75,6 +130,7 @@
             <View
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:layout_gravity="center"
                 android:background="@color/verde" />
             <TextView
                 android:layout_width="wrap_content"
@@ -92,6 +148,7 @@
             <View
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:layout_gravity="center"
                 android:background="@color/amarillo" />
             <TextView
                 android:layout_width="wrap_content"
@@ -109,6 +166,7 @@
             <View
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:layout_gravity="center"
                 android:background="@color/rojo" />
             <TextView
                 android:layout_width="wrap_content"
