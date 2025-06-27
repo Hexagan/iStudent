@@ -31,11 +31,11 @@ class CalificacionesFragment : Fragment(R.layout.fragment_calificaciones) { //
     // Función para generar los datos de prueba (MOVIDA AQUÍ)
     private fun generateDummyData(): List<Calificacion> { //
         val dummyData = listOf( //
-            Calificacion("PRU", 9, 6, 5, 10, 7.5), //
-            Calificacion("MOB", 7, 5, 6, 6, 6.0), //
-            Calificacion("TIC", 8, 6, 9, 7, 7.5), //
-            Calificacion("COM", 8, 7, 4, 10, 7.25), //
-            Calificacion("PPI", 10, 0, 2, 5, 4.25) // Ejemplo con promedio bajo para probar color "Libre"
+            Calificacion("Prueba de Sistemas", 9, 6, 5, 10, 7.5), //
+            Calificacion("Desarrollo Mobile", 7, 5, 6, 6, 6.0), //
+            Calificacion("Tecnologias de la Información", 9, 1, 5, 2, 4.25), //
+            Calificacion("Taller de Comunicación", 8, 7, 4, 10, 7.25), //
+            Calificacion("Práctica Profesional I", 7, 1, 2, 5, 3.75) // Ejemplo con promedio bajo para probar color "Libre"
         )
         Log.d("DEBUG_APP", "generateDummyData() retornando ${dummyData.size} items.") //
         return dummyData //
