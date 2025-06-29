@@ -23,7 +23,7 @@ class LoginFragment : Fragment(R.layout.login) {
                 parentFragmentManager.commit {
                     replace(R.id.fragment_container, HomeFragment())
                     addToBackStack(null)
-                    (requireActivity() as MainActivity).navegarAPantallaPrincipal()
+                    (requireActivity() as MainActivity).ocultarNavBar()
                 }
             } else {
                 Toast.makeText(requireContext(), "Credenciales incorrectas", Toast.LENGTH_SHORT).show()

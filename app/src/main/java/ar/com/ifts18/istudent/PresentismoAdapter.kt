@@ -39,11 +39,10 @@ class PresentismoAdapter(private val materias: List<AsistenciaMateria>) :
         holder.tvPorcentaje.text = "${materia.porcentaje}%"
         holder.tvEstado.text = materia.estado
 
-        // Colores de fondo de celdas (vía View, no TextView)
+        // Colores de fondo de celdas
         holder.viewAsistenciaColor.setBackgroundColor(Color.parseColor("#A5D6A7")) // verde claro
         holder.viewFaltasColor.setBackgroundColor(Color.parseColor("#EF9A9A"))     // rojo claro
 
-        // Porcentaje: verde, amarillo o naranja según valor
         val colorPorcentaje = when {
             materia.porcentaje >= 95 -> "#81C784" // verde
             materia.porcentaje >= 88 -> "#FFF176" // amarillo

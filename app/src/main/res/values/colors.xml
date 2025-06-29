@@ -14,4 +14,22 @@
     <color name="zona_promocion_color">#00FF0A</color>
     <color name="regular_color">#FFEB3B</color>
     <color name="libre_color">#E2515D</color>
+    <color name="azulSuave">#DCEFFF</color>
+    <color name="amarilloSuave">#FFF9CC</color>
+    <color name="naranjaSuave">#FFE5CC</color>
+    <color name="verdeSuave">#BCCAAF</color>
+    <color name="azulClaro">#91CDE0</color>
+    <color name="azulOscuro">#1565C0</color>
+    <color name="naranjaOscuro">#FF7043</color>
+    <color name="rosadoSuave">#FAD4D4</color>
+    <color name="azulLavanda">#D9E4F5</color>
+    <color name="primaryText">#212121</color>
+    <color name="secondaryText">#616161</color>
+    <color name="background_light">#F5F5F5</color>
+    <color name="urgente">#D32F2F</color>
+    <color name="informativo">#1976D2</color>
+    <color name="exitoso">#388E3C</color>
+
+    <color name="ripple_light">#22000000</color>
+
 </resources>

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+
     android:padding="24dp">
 
     <TextView
@@ -24,11 +25,14 @@
         android:id="@+id/editTextUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Usuario" />
+        android:hint="Usuario"
+        android:autofillHints="name"
+        android:inputType="textPersonName"/>
 
     <EditText
         android:id="@+id/editTextContrasenia"
         android:hint="Contraseña"
+        android:autofillHints="password"
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,7 +50,6 @@
         android:text="Ingresar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/gris_oscuro"
         android:layout_marginTop="16dp" />
 
     <TextView

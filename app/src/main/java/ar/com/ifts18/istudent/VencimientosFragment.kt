@@ -9,9 +9,5 @@ class VencimientosFragment : Fragment(R.layout.fragment_vencimientos) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Acá podés acceder a elementos de la vista con: view.findViewById(...)
-        // Por ejemplo:
-        // val texto = view.findViewById<TextView>(R.id.tu_textview)
-        // texto.text = "¡Hola desde el fragment!"
     }
 }

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -56,7 +55,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         btnAcercaDe.setOnClickListener {
-            // AcercaDe sigue siendo una Activity
             startActivity(Intent(requireContext(), AcercaDeActivity::class.java))
         }
 
@@ -65,7 +63,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             requireActivity().finish()
-            (requireActivity() as MainActivity).navegarAPantallaPrincipal()
+            (requireActivity() as MainActivity).ocultarNavBar()
         }
     }
 }

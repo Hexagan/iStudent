@@ -1,13 +1,15 @@
 package ar.com.ifts18.istudent
 
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.ColorDrawable // Importar ColorDrawable
+import android.graphics.drawable.LayerDrawable // Importar LayerDrawable
+import androidx.core.content.ContextCompat // Importar ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import java.util.Locale
+import java.util.Locale // Importar Locale para formato de promedio
 
 class GradesAdapter(private val gradeList: List<Calificacion>) :
     RecyclerView.Adapter<GradesAdapter.GradeViewHolder>() {
@@ -35,20 +37,33 @@ class GradesAdapter(private val gradeList: List<Calificacion>) :
         holder.pa2.text = currentItem.pa2.toString() //
         holder.tp2.text = currentItem.tp2.toString() //
         // Formatear el promedio a dos decimales
-        holder.promedio.text = String.format(Locale.getDefault(), "%.2f", currentItem.promedio)
+        holder.promedio.text = String.format(Locale.getDefault(), "%.2f", currentItem.promedio) // Formato a 2 decimales
 
         // Lógica para el color de fondo del promedio
-        val average = currentItem.promedio
-        val backgroundColor: Int = when {
+        val average = currentItem.promedio //
+        val backgroundColor: Int = when { //
             average >= 7.0 -> Color.parseColor("#00DAF4")
-            average >= 6.0 -> Color.parseColor("#00FF0A")
-            average >= 4.0 -> Color.parseColor("#FFEB3B")
-            else -> Color.parseColor("#E2515D")
+            average >= 6.0 && average < 7.0 -> Color.parseColor("#00FF0A")
+            average >= 4.0 && average < 6.0 -> Color.parseColor("#FFEB3B")
+            else -> Color.parseColor("#D52337")
         }
-        holder.promedio.background = ColorDrawable(backgroundColor)
 
+        // Crear un LayerDrawable: el borde abajo, el color de fondo encima
+        val borderDrawable = ContextCompat.getDrawable(holder.itemView.context, R.drawable.borde_celda) // Asegúrate de que este drawable exista
+        val colorDrawable = ColorDrawable(backgroundColor)
+        val layerDrawable = LayerDrawable(arrayOf(borderDrawable, colorDrawable))
 
+        // Ajustar los insets (margen) del colorDrawable para que el borde sea visible
+        // Esto crea un pequeño margen (1dp en cada lado) para que el borde subyacente se vea.
+        layerDrawable.setLayerInset(1, // Índice del colorDrawable en el array (el segundo elemento)
+            1, // left (1dp)
+            1, // top (1dp)
+            1, // right (1dp)
+            1  // bottom (1dp)
+        )
+
+        holder.promedio.background = layerDrawable // Asignar el LayerDrawable al background
     }
 
-    override fun getItemCount() = gradeList.size
+    override fun getItemCount() = gradeList.size //
 }

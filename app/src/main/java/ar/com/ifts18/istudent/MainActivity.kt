@@ -15,23 +15,15 @@ class MainActivity : AppCompatActivity() {
 
         bottomNav = findViewById(R.id.bottom_navigation)
 
-        // Ocultar nav bar al inicio (pantalla de login)
         bottomNav.visibility = View.GONE
 
-        // Mostrar LoginFragment al iniciar la app
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, LoginFragment())
                 .commit()
         }
-
-        // Configurar navegación global
         setupNavigation()
 
-    }
-
-    fun mostrarNavBar() {
-        bottomNav.visibility = View.VISIBLE
     }
 
     private fun setupNavigation() {
@@ -56,20 +48,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    /**
-     * Método para activar la barra y abrir el fragment inicial tras login
-     */
-    fun navegarAPantallaPrincipal() {
-        bottomNav.visibility = View.GONE
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, HomeFragment())
-            .commit()
+    fun mostrarNavBar() {
+        bottomNav.visibility = View.VISIBLE
     }
 
-    fun cerrarSesion() {
+    fun ocultarNavBar() {
         bottomNav.visibility = View.GONE
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, LoginFragment())
-            .commit()
     }
+
 }

@@ -20,7 +20,8 @@
             android:gravity="center"
             android:text="Calendario de Vencimientos"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="35dp"/>
 
         <CalendarView
             android:layout_width="match_parent"
