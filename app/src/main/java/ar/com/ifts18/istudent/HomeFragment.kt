@@ -8,6 +8,16 @@ import androidx.fragment.app.Fragment
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
+    private fun irA(fragment: Fragment): View.OnClickListener {
+        return View.OnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+            (requireActivity() as MainActivity).mostrarNavBar()
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -17,42 +27,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val btnCronograma = view.findViewById<LinearLayout>(R.id.buttonCronograma)
         val btnAcercaDe = view.findViewById<LinearLayout>(R.id.buttonAcercaDe)
         val btnDesconectarse = view.findViewById<LinearLayout>(R.id.buttonDesconectarse)
+        val btnCard1 = view.findViewById<LinearLayout>(R.id.buttonCard1)
+        val btnCard2 = view.findViewById<LinearLayout>(R.id.buttonCard2)
+        val btnCard3 = view.findViewById<LinearLayout>(R.id.buttonCard3)
 
-        btnCalificaciones.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, CalificacionesFragment())
-                .addToBackStack(null)
-                .commit()
+        btnVencimientos.setOnClickListener (irA(VencimientosFragment()))
+        btnCard1.setOnClickListener (irA(VencimientosFragment()))
 
-            (requireActivity() as MainActivity).mostrarNavBar()
-        }
+        btnCalificaciones.setOnClickListener(irA(CalificacionesFragment()))
+        btnCard2.setOnClickListener (irA(CalificacionesFragment()))
 
-        btnVencimientos.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, VencimientosFragment())
-                .addToBackStack(null)
-                .commit()
+        btnPresentismo.setOnClickListener (irA(PresentismoFragment()))
+        btnCard3.setOnClickListener (irA(PresentismoFragment()))
 
-            (requireActivity() as MainActivity).mostrarNavBar()
-        }
-
-        btnPresentismo.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, PresentismoFragment())
-                .addToBackStack(null)
-                .commit()
-
-            (requireActivity() as MainActivity).mostrarNavBar()
-        }
-
-        btnCronograma.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, CronogramaFragment())
-                .addToBackStack(null)
-                .commit()
-
-            (requireActivity() as MainActivity).mostrarNavBar()
-        }
+        btnCronograma.setOnClickListener (irA(CronogramaFragment()))
 
         btnAcercaDe.setOnClickListener {
             startActivity(Intent(requireContext(), AcercaDeActivity::class.java))

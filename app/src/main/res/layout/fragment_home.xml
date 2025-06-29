@@ -226,6 +226,7 @@
                 app:cardBackgroundColor="@color/amarilloSuave">
 
                 <LinearLayout
+                    android:id="@+id/buttonCard1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -272,6 +273,7 @@
                 app:cardBackgroundColor="@color/azulClaro">
 
                 <LinearLayout
+                    android:id="@+id/buttonCard2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -318,6 +320,7 @@
                 app:cardBackgroundColor="@color/naranjaSuave">
 
                 <LinearLayout
+                    android:id="@+id/buttonCard3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
