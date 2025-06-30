@@ -15,7 +15,7 @@
         android:layout_marginBottom="24dp" />
 
     <ImageView
-        android:src="@drawable/ic_estudiante"
+        android:src="@drawable/logo"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_gravity="center"
@@ -48,6 +48,7 @@
     <Button
         android:id="@+id/buttonIngresar"
         android:text="Ingresar"
+        android:backgroundTint="#00BCD4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp" />
