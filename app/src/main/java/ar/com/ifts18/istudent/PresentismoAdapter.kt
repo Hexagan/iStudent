@@ -1,25 +1,32 @@
 package ar.com.ifts18.istudent
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.cardview.widget.CardView
+import androidx.core.graphics.toColorInt
 
-class PresentismoAdapter(private val materias: List<AsistenciaMateria>) :
+data class AsistenciaMateria(
+    val codigo: String,
+    val faltas: Int,
+    val porcentaje: Int,
+    val ausencias: List<String> = emptyList(),
+    var expandido: Boolean = false
+)
+class PresentismoAdapter(private val materias: MutableList<AsistenciaMateria>) :
     RecyclerView.Adapter<PresentismoAdapter.ViewHolder>() {
-
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvCodigo: TextView = view.findViewById(R.id.tvCodigo)
-        val tvAsistencia: TextView = view.findViewById(R.id.tvAsistencia)
-        val tvFaltas: TextView = view.findViewById(R.id.tvFaltas)
         val tvPorcentaje: TextView = view.findViewById(R.id.tvPorcentaje)
-        val tvEstado: TextView = view.findViewById(R.id.tvEstado)
-
-        val viewAsistenciaColor: View = view.findViewById(R.id.viewAsistenciaColor)
-        val viewFaltasColor: View = view.findViewById(R.id.viewFaltasColor)
-        val viewPorcentajeColor: View = view.findViewById(R.id.viewPorcentajeColor)
+        val tvCantidadFaltas: TextView = view.findViewById(R.id.tvCantidadFaltas)
+        val layoutAusencias: LinearLayout = view.findViewById(R.id.layoutAusencias)
+        val tvDiasAusentes: TextView = view.findViewById(R.id.tvDiasAusentes)
+        val btnExpand: ImageButton = view.findViewById(R.id.btnExpand)
+        val seccionExpandir: LinearLayout = view.findViewById(R.id.seccionExpandir)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,22 +39,49 @@ class PresentismoAdapter(private val materias: List<AsistenciaMateria>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val materia = materias[position]
+        val card = holder.itemView.findViewById<CardView>(R.id.cardRoot)
 
         holder.tvCodigo.text = materia.codigo
-        holder.tvAsistencia.text = materia.asistencia.toString()
-        holder.tvFaltas.text = materia.faltas.toString()
         holder.tvPorcentaje.text = "${materia.porcentaje}%"
-        holder.tvEstado.text = materia.estado
+        holder.tvCantidadFaltas.text = materia.faltas.toString()
+        holder.tvDiasAusentes.text = materia.ausencias.joinToString(", ")
 
-        // Colores de fondo de celdas
-        holder.viewAsistenciaColor.setBackgroundColor(Color.parseColor("#A5D6A7")) // verde claro
-        holder.viewFaltasColor.setBackgroundColor(Color.parseColor("#EF9A9A"))     // rojo claro
-
-        val colorPorcentaje = when {
-            materia.porcentaje >= 95 -> "#81C784" // verde
-            materia.porcentaje >= 88 -> "#FFF176" // amarillo
-            else -> "#FFB74D" // naranja
+        val faltaColor = when {
+            materia.porcentaje >= 98 -> "#388E3C"
+            materia.porcentaje >= 90 -> "#689F38"
+            materia.porcentaje >= 85 -> "#FBC02D"
+            materia.porcentaje >= 80 -> "#F57C00"
+            else -> "#C62828"
         }
-        holder.viewPorcentajeColor.setBackgroundColor(Color.parseColor(colorPorcentaje))
+        holder.tvCantidadFaltas.setBackgroundColor(faltaColor.toColorInt())
+
+        val bgColor = when {
+            materia.porcentaje >= 98 -> "#63b36d"
+            materia.porcentaje >= 90 -> "#DCE775"
+            materia.porcentaje >= 85 -> "#FFF176"
+            materia.porcentaje >= 80 -> "#FFB74D"
+            else -> "#E57373"
+        }
+        card.setCardBackgroundColor(bgColor.toColorInt())
+        // Expandir solo si hay ausencias
+        if (materia.ausencias.isNotEmpty()) {
+            holder.seccionExpandir.visibility = View.VISIBLE
+            holder.btnExpand.setImageResource(
+                if (materia.expandido) R.drawable.ic_expandir_menos else R.drawable.ic_expandir_mas
+            )
+
+            holder.layoutAusencias.visibility =
+                if (materia.expandido) View.VISIBLE else View.GONE
+
+            holder.btnExpand.setOnClickListener {
+                materia.expandido = !materia.expandido
+                notifyItemChanged(position)
+            }
+        } else {
+            holder.seccionExpandir.visibility = View.GONE
+            holder.layoutAusencias.visibility = View.GONE
+        }
     }
 }
+
+
