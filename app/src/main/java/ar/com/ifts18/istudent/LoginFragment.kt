@@ -15,31 +15,35 @@ class LoginFragment : Fragment(R.layout.login) {
         val recordarCheckBox = view.findViewById<CheckBox>(R.id.checkboxRecordar)
         val ingresarButton = view.findViewById<Button>(R.id.buttonIngresar)
         val invitadoTextView = view.findViewById<TextView>(R.id.textViewInvitado)
+        val registrarTextView = view.findViewById<TextView>(R.id.textViewRegistrar)
 
         val sharedPrefs = requireContext().getSharedPreferences("prefs_login", 0)
         val recordar = sharedPrefs.getBoolean("recordar", false)
+
         if (recordar) {
-            val usuarioGuardado = sharedPrefs.getString("usuario", "")
-            val passGuardado = sharedPrefs.getString("password", "")
-            usuarioEditText.setText(usuarioGuardado)
-            contraseniaEditText.setText(passGuardado)
+            val lastUser = sharedPrefs.getString("last_user", "")
+            usuarioEditText.setText(lastUser)
+
+
+            val pass = sharedPrefs.getString("user_$lastUser", "")
+            contraseniaEditText.setText(pass)
+
             recordarCheckBox.isChecked = true
         }
 
         ingresarButton.setOnClickListener {
             val usuario = usuarioEditText.text.toString()
             val contrasenia = contraseniaEditText.text.toString()
+            val passRegistrada = sharedPrefs.getString("user_$usuario", null)
 
-            if (usuario == "alumno" && contrasenia == "1234") {
+            if (passRegistrada != null && passRegistrada == contrasenia) {
                 sharedPrefs.edit {
-                    if (recordarCheckBox.isChecked) {
-                        putString("usuario", usuario)
-                        putString("password", contrasenia)
-                        putBoolean("recordar", true)
-                    } else {
-                        clear()
-                    }
+                    putString("last_user", usuario)
+
+                    if (recordarCheckBox.isChecked) { putBoolean("recordar", true) }
+                    else { putBoolean("recordar", false) }
                 }
+
                 parentFragmentManager.commit {
                     replace(R.id.fragment_container, HomeFragment())
                     addToBackStack(null)
@@ -47,6 +51,13 @@ class LoginFragment : Fragment(R.layout.login) {
                 }
             } else {
                 Toast.makeText(requireContext(), "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        registrarTextView.setOnClickListener {
+            parentFragmentManager.commit {
+                replace(R.id.fragment_container, RegistroFragment())
+                addToBackStack(null)
             }
         }
 

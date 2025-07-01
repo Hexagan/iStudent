@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -30,6 +31,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val btnCard1 = view.findViewById<LinearLayout>(R.id.buttonCard1)
         val btnCard2 = view.findViewById<LinearLayout>(R.id.buttonCard2)
         val btnCard3 = view.findViewById<LinearLayout>(R.id.buttonCard3)
+
+        val welcomeText = view.findViewById<TextView>(R.id.welcomeText)
+        val sharedPrefs = requireContext().getSharedPreferences("prefs_login", 0)
+        val nombreUsuario = sharedPrefs.getString("last_user", "Alumno") // fallback si no se recuerda
+
+        welcomeText.text = "¡Bienvenido/a $nombreUsuario!"
 
         btnVencimientos.setOnClickListener (irA(VencimientosFragment()))
         btnCard1.setOnClickListener (irA(VencimientosFragment()))

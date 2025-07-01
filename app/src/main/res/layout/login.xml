@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-
-    android:padding="24dp">
+    android:padding="48dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,7 +18,8 @@
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="24dp"
+        android:contentDescription="logo de la app"/>
 
     <EditText
         android:id="@+id/editTextUsuario"
@@ -47,11 +47,11 @@
 
     <Button
         android:id="@+id/buttonIngresar"
-        android:text="Ingresar"
-        android:backgroundTint="#00BCD4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00BCD4"
+        android:text="Ingresar" />
 
     <TextView
         android:id="@+id/textViewRegistrar"

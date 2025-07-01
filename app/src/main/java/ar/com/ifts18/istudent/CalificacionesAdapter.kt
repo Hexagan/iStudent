@@ -1,18 +1,19 @@
 package ar.com.ifts18.istudent
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable // Importar ColorDrawable
-import android.graphics.drawable.LayerDrawable // Importar LayerDrawable
-import androidx.core.content.ContextCompat // Importar ContextCompat
+
+import android.graphics.drawable.LayerDrawable
+import androidx.core.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import java.util.Locale // Importar Locale para formato de promedio
+import java.util.Locale // formato de promedio
+import androidx.core.graphics.toColorInt
+import androidx.core.graphics.drawable.toDrawable
 
-class GradesAdapter(private val gradeList: List<Calificacion>) :
-    RecyclerView.Adapter<GradesAdapter.GradeViewHolder>() {
+class CalificacionesAdapter(private val gradeList: List<Calificacion>) :
+    RecyclerView.Adapter<CalificacionesAdapter.GradeViewHolder>() {
 
     inner class GradeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val materia: TextView = itemView.findViewById(R.id.materia) //
@@ -42,15 +43,15 @@ class GradesAdapter(private val gradeList: List<Calificacion>) :
         // Lógica para el color de fondo del promedio
         val average = currentItem.promedio //
         val backgroundColor: Int = when { //
-            average >= 7.0 -> Color.parseColor("#00DAF4")
-            average >= 6.0 && average < 7.0 -> Color.parseColor("#00FF0A")
-            average >= 4.0 && average < 6.0 -> Color.parseColor("#FFEB3B")
-            else -> Color.parseColor("#D52337")
+            average >= 7.0 -> "#00DAF4".toColorInt()
+            average >= 6.0 && average < 7.0 -> "#00FF0A".toColorInt()
+            average >= 4.0 -> "#FFEB3B".toColorInt()
+            else -> "#D52337".toColorInt()
         }
 
         // Crear un LayerDrawable: el borde abajo, el color de fondo encima
         val borderDrawable = ContextCompat.getDrawable(holder.itemView.context, R.drawable.borde_celda) // Asegúrate de que este drawable exista
-        val colorDrawable = ColorDrawable(backgroundColor)
+        val colorDrawable = backgroundColor.toDrawable()
         val layerDrawable = LayerDrawable(arrayOf(borderDrawable, colorDrawable))
 
         // Ajustar los insets (margen) del colorDrawable para que el borde sea visible

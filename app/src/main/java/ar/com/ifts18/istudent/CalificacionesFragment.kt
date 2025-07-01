@@ -24,7 +24,7 @@ class CalificacionesFragment : Fragment(R.layout.fragment_calificaciones) { //
         Log.d("DEBUG_APP", "Tamaño de gradeList en CalificacionesFragment: ${gradeList.size}") // Agregado para depuración
 
         // 4. Inicializar y asignar el adaptador al RecyclerView
-        val gradesAdapter = GradesAdapter(gradeList) //
+        val gradesAdapter = CalificacionesAdapter(gradeList) //
         recyclerView.adapter = gradesAdapter //
     }
 
