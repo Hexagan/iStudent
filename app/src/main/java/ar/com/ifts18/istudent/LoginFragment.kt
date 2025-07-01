@@ -14,7 +14,6 @@ class LoginFragment : Fragment(R.layout.login) {
         val contraseniaEditText = view.findViewById<EditText>(R.id.editTextContrasenia)
         val recordarCheckBox = view.findViewById<CheckBox>(R.id.checkboxRecordar)
         val ingresarButton = view.findViewById<Button>(R.id.buttonIngresar)
-        val invitadoTextView = view.findViewById<TextView>(R.id.textViewInvitado)
         val registrarTextView = view.findViewById<TextView>(R.id.textViewRegistrar)
 
         val sharedPrefs = requireContext().getSharedPreferences("prefs_login", 0)
@@ -57,13 +56,6 @@ class LoginFragment : Fragment(R.layout.login) {
         registrarTextView.setOnClickListener {
             parentFragmentManager.commit {
                 replace(R.id.fragment_container, RegistroFragment())
-                addToBackStack(null)
-            }
-        }
-
-        invitadoTextView.setOnClickListener {
-            parentFragmentManager.commit {
-                replace(R.id.fragment_container, HomeFragment())
                 addToBackStack(null)
             }
         }
