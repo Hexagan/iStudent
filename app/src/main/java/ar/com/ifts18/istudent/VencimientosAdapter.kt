@@ -1,3 +1,4 @@
+
 package ar.com.ifts18.istudent
 
 import android.graphics.Color
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -17,11 +19,6 @@ import java.time.temporal.ChronoUnit
 import java.util.Locale
 import androidx.core.graphics.toColorInt
 
-data class MateriaVencimiento(
-    val nombre: String,
-    val fechaTPStr: String,
-    val fechaParcialStr: String
-)
 class VencimientosAdapter(
     private val materias: List<MateriaVencimiento>,
     private val onRecordatorio: (String, String, Long) -> Unit
@@ -35,6 +32,8 @@ class VencimientosAdapter(
         val tvFechaParcial: TextView = view.findViewById(R.id.tvFechaParcial)
         val tvEstadoParcial: TextView = view.findViewById(R.id.tvEstadoParcial)
         val iconMateria: ImageView = view.findViewById(R.id.iconMateria)
+
+        val cardRoot: CardView = view.findViewById(R.id.cardRoot)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -52,8 +51,7 @@ class VencimientosAdapter(
         val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.getDefault())
         val today = LocalDate.now()
 
-        // === materia ===
-        val cardRoot = holder.itemView.findViewById<CardView>(R.id.cardRoot)
+
         val bgColor = when (materia.nombre) {
             "Metodología de Pruebas de Sistema" -> "#A9C47F"
             "Taller de Comunicación" -> "#8DA6BF"
@@ -62,7 +60,7 @@ class VencimientosAdapter(
             "PPI", "Prácticas Profesionalizantes I" -> "#B38FBF"
             else -> "#ECECEC"
         }
-        cardRoot.setCardBackgroundColor(bgColor.toColorInt())
+        holder.cardRoot.setCardBackgroundColor(bgColor.toColorInt())
 
         val iconRes = when (materia.nombre) {
             "Metodología de Pruebas de Sistema" -> R.drawable.ic_metodologia
@@ -74,13 +72,13 @@ class VencimientosAdapter(
         }
 
         holder.iconMateria.setImageResource(iconRes)
-        holder.iconMateria.setColorFilter(Color.WHITE) // para tint blanco
+        holder.iconMateria.setColorFilter(Color.WHITE)
 
-        // === TP ===
+
         holder.tvFechaTP.text = materia.fechaTPStr
         if (materia.fechaTPStr.trim() == "-" || materia.fechaTPStr.trim().isEmpty()) {
             holder.tvEstadoTP.text = "Entregado"
-            holder.tvEstadoTP.setTextColor("#4CAF50".toColorInt())
+            holder.tvEstadoTP.setTextColor("#4CAF50".toColorInt()) // Verde
             holder.tvFechaTP.background = ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_fecha_generica)
         } else {
             val fechaTP = runCatching { LocalDate.parse(materia.fechaTPStr, formatter) }.getOrNull()
@@ -88,19 +86,20 @@ class VencimientosAdapter(
                 when {
                     fechaTP.isBefore(today) -> {
                         holder.tvEstadoTP.text = "Vencido"
-                        holder.tvEstadoTP.setTextColor("#888888".toColorInt())
+                        holder.tvEstadoTP.setTextColor("#888888".toColorInt()) // Gris
                         holder.tvFechaTP.background = ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_fecha_vencida)
                     }
                     else -> {
                         val dias = ChronoUnit.DAYS.between(today, fechaTP)
                         holder.tvEstadoTP.text = "$dias días restantes"
-                        holder.tvEstadoTP.setTextColor("#888888".toColorInt())
-                        holder.tvFechaTP.background = if (dias in 0..3)
+                        holder.tvEstadoTP.setTextColor("#888888".toColorInt()) // Gris
+                        holder.tvFechaTP.background = if (dias >= 0 && dias <= 3) // Si quedan 0, 1, 2 o 3 días
                             ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_fecha_proxima)
                         else
                             ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_fecha_generica)
                     }
                 }
+
                 holder.tvFechaTP.setOnClickListener {
                     val millis = fechaTP.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
                     onRecordatorio(materia.nombre, "TP", millis)
@@ -108,7 +107,6 @@ class VencimientosAdapter(
             }
         }
 
-        // === Parcial ===
         holder.tvFechaParcial.text = materia.fechaParcialStr
         if (materia.fechaParcialStr.trim() == "-" || materia.fechaParcialStr.trim().isEmpty()) {
             holder.tvEstadoParcial.text = "Completado"
@@ -120,7 +118,7 @@ class VencimientosAdapter(
                 val dias = ChronoUnit.DAYS.between(today, fechaParcial)
                 holder.tvEstadoParcial.text = "$dias días restantes"
                 holder.tvEstadoParcial.setTextColor("#888888".toColorInt())
-                holder.tvFechaParcial.background = if (dias in 0..3)
+                holder.tvFechaParcial.background = if (dias >= 0 && dias <= 3)
                     ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_fecha_proxima)
                 else
                     ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_fecha_generica)
@@ -132,21 +130,34 @@ class VencimientosAdapter(
             }
         }
 
-        // Botón de notificación activa recordatorios para ambos
         holder.btnNotificacion.setOnClickListener {
-            val fechaTP = runCatching { LocalDate.parse(materia.fechaTPStr, formatter) }.getOrNull()
-            if (fechaTP != null) {
-                val millis = fechaTP.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
-                onRecordatorio(materia.nombre, "TP", millis)
+            var recordatorioProgramado = false
+
+            if (materia.fechaTPStr.trim() != "-" && !materia.fechaTPStr.trim().isEmpty()) {
+                val fechaTP = runCatching { LocalDate.parse(materia.fechaTPStr, formatter) }.getOrNull()
+                if (fechaTP != null && !fechaTP.isBefore(today)) {
+                    val millis = fechaTP.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
+                    onRecordatorio(materia.nombre, "TP", millis)
+                    recordatorioProgramado = true
+                }
             }
-            val fechaParcial = runCatching { LocalDate.parse(materia.fechaParcialStr, formatter) }.getOrNull()
-            if (fechaParcial != null) {
-                val millis = fechaParcial.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
-                onRecordatorio(materia.nombre, "Parcial", millis)
+
+            if (materia.fechaParcialStr.trim() != "-" && !materia.fechaParcialStr.trim().isEmpty()) {
+                val fechaParcial = runCatching { LocalDate.parse(materia.fechaParcialStr, formatter) }.getOrNull()
+                if (fechaParcial != null && !fechaParcial.isBefore(today)) {
+                    val millis = fechaParcial.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
+                    onRecordatorio(materia.nombre, "Parcial", millis)
+                    recordatorioProgramado = true
+                }
             }
-            holder.btnNotificacion.setImageResource(R.drawable.ic_campana_activado)
+
+            if (recordatorioProgramado) {
+                holder.btnNotificacion.setImageResource(R.drawable.ic_campana_activado)
+
+                Toast.makeText(holder.itemView.context, "Se abrirá el calendario para programar.", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(holder.itemView.context, "No hay fechas válidas o futuras para programar.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
-
-
