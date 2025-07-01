@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Usuario"
+        android:gravity="center"
         android:inputType="text"
         android:layout_marginBottom="16dp"
         android:autofillHints="name" />
@@ -30,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Contraseña"
+        android:gravity="center"
         android:inputType="textPassword"
         android:layout_marginBottom="32dp"
         android:autofillHints="password" />
@@ -39,12 +41,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registrar"
+        android:backgroundTint="#00BCD4"
         android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/btnVolverLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#00BCD4"
         android:text="Volver al login" />
 
 </LinearLayout>
