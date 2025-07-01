@@ -34,6 +34,7 @@ class VencimientosAdapter(
         val tvEstadoTP: TextView = view.findViewById(R.id.tvEstadoTP)
         val tvFechaParcial: TextView = view.findViewById(R.id.tvFechaParcial)
         val tvEstadoParcial: TextView = view.findViewById(R.id.tvEstadoParcial)
+        val iconMateria: ImageView = view.findViewById(R.id.iconMateria)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -51,7 +52,7 @@ class VencimientosAdapter(
         val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.getDefault())
         val today = LocalDate.now()
 
-        // === Color por materia ===
+        // === materia ===
         val cardRoot = holder.itemView.findViewById<CardView>(R.id.cardRoot)
         val bgColor = when (materia.nombre) {
             "Metodología de Pruebas de Sistema" -> "#A9C47F"
@@ -62,6 +63,18 @@ class VencimientosAdapter(
             else -> "#ECECEC"
         }
         cardRoot.setCardBackgroundColor(bgColor.toColorInt())
+
+        val iconRes = when (materia.nombre) {
+            "Metodología de Pruebas de Sistema" -> R.drawable.ic_metodologia
+            "Desarrollo de Aplicaciones Móviles" -> R.drawable.ic_mobile
+            "Taller de Comunicación" -> R.drawable.ic_comunicacion
+            "Prácticas Profesionalizantes I" -> R.drawable.ic_ppi
+            "Tecnologías de la Información" -> R.drawable.ic_ti
+            else -> R.drawable.ic_school
+        }
+
+        holder.iconMateria.setImageResource(iconRes)
+        holder.iconMateria.setColorFilter(Color.WHITE) // para tint blanco
 
         // === TP ===
         holder.tvFechaTP.text = materia.fechaTPStr
@@ -106,7 +119,7 @@ class VencimientosAdapter(
             if (fechaParcial != null) {
                 val dias = ChronoUnit.DAYS.between(today, fechaParcial)
                 holder.tvEstadoParcial.text = "$dias días restantes"
-                holder.tvEstadoParcial.setTextColor(Color.parseColor("#888888"))
+                holder.tvEstadoParcial.setTextColor("#888888".toColorInt())
                 holder.tvFechaParcial.background = if (dias in 1..3)
                     ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_fecha_proxima)
                 else

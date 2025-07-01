@@ -1,9 +1,11 @@
 package ar.com.ifts18.istudent
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -20,13 +22,14 @@ data class AsistenciaMateria(
 class PresentismoAdapter(private val materias: MutableList<AsistenciaMateria>) :
     RecyclerView.Adapter<PresentismoAdapter.ViewHolder>() {
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvCodigo: TextView = view.findViewById(R.id.tvCodigo)
+        val tvMateria: TextView = view.findViewById(R.id.tvMateria)
         val tvPorcentaje: TextView = view.findViewById(R.id.tvPorcentaje)
         val tvCantidadFaltas: TextView = view.findViewById(R.id.tvCantidadFaltas)
         val layoutAusencias: LinearLayout = view.findViewById(R.id.layoutAusencias)
         val tvDiasAusentes: TextView = view.findViewById(R.id.tvDiasAusentes)
         val btnExpand: ImageButton = view.findViewById(R.id.btnExpand)
         val seccionExpandir: LinearLayout = view.findViewById(R.id.seccionExpandir)
+        val iconMateria: ImageView = view.findViewById(R.id.iconMateria)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -41,7 +44,7 @@ class PresentismoAdapter(private val materias: MutableList<AsistenciaMateria>) :
         val materia = materias[position]
         val card = holder.itemView.findViewById<CardView>(R.id.cardRoot)
 
-        holder.tvCodigo.text = materia.codigo
+        holder.tvMateria.text = materia.codigo
         holder.tvPorcentaje.text = "${materia.porcentaje}%"
         holder.tvCantidadFaltas.text = materia.faltas.toString()
         holder.tvDiasAusentes.text = materia.ausencias.joinToString(", ")
@@ -63,6 +66,19 @@ class PresentismoAdapter(private val materias: MutableList<AsistenciaMateria>) :
             else -> "#E57373"
         }
         card.setCardBackgroundColor(bgColor.toColorInt())
+
+        val iconRes = when (materia.codigo) {
+            "Metodología de Pruebas de Sistema" -> R.drawable.ic_metodologia
+            "Desarrollo de Aplicaciones Móviles" -> R.drawable.ic_mobile
+            "Taller de Comunicación" -> R.drawable.ic_comunicacion
+            "Prácticas Profesionalizantes I" -> R.drawable.ic_ppi
+            "Tecnologías de la Información" -> R.drawable.ic_ti
+            else -> R.drawable.ic_school
+        }
+
+        holder.iconMateria.setImageResource(iconRes)
+        holder.iconMateria.setColorFilter(Color.WHITE) // para tint blanco
+
         // Expandir solo si hay ausencias
         if (materia.ausencias.isNotEmpty()) {
             holder.seccionExpandir.visibility = View.VISIBLE

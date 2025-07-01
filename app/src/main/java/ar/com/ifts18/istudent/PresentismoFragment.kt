@@ -21,8 +21,8 @@ class PresentismoFragment : Fragment(R.layout.fragment_presentismo) {
         recycler.addItemDecoration(decor)
 
         val listaMaterias = listOf(
-            AsistenciaMateria("Pruebas de Sistema", 0, 100),
-            AsistenciaMateria("Desarrollo Aplicaciones", 0, 100),
+            AsistenciaMateria("Metodología de Pruebas de Sistema", 0, 100),
+            AsistenciaMateria("Desarrollo de Aplicaciones Móviles", 0, 100),
             AsistenciaMateria("Taller de Comunicación", 2, 90, listOf("30/03", "01/04")),
             AsistenciaMateria("Prácticas Profesionalizantes I", 3, 80, listOf("01/04", "08/04", "15/04")),
             AsistenciaMateria("Tecnologías de la Información", 5, 75, listOf("09/04", "16/04", "21/04", "23/04","28/04")),
