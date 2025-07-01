@@ -95,7 +95,7 @@ class VencimientosAdapter(
                         val dias = ChronoUnit.DAYS.between(today, fechaTP)
                         holder.tvEstadoTP.text = "$dias días restantes"
                         holder.tvEstadoTP.setTextColor("#888888".toColorInt())
-                        holder.tvFechaTP.background = if (dias in 1..3)
+                        holder.tvFechaTP.background = if (dias in 0..3)
                             ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_fecha_proxima)
                         else
                             ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_fecha_generica)
@@ -120,7 +120,7 @@ class VencimientosAdapter(
                 val dias = ChronoUnit.DAYS.between(today, fechaParcial)
                 holder.tvEstadoParcial.text = "$dias días restantes"
                 holder.tvEstadoParcial.setTextColor("#888888".toColorInt())
-                holder.tvFechaParcial.background = if (dias in 1..3)
+                holder.tvFechaParcial.background = if (dias in 0..3)
                     ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_fecha_proxima)
                 else
                     ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_fecha_generica)

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "221393367662",
+    "project_id": "istudent-43045",
+    "storage_bucket": "istudent-43045.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221393367662:android:194506bf6886c95789ec7f",
+        "android_client_info": {
+          "package_name": "ar.com.ifts18.istudent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4-njzvhczniwjX5r-T6CrnlDqgkRAfbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

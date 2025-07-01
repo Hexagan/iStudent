@@ -23,7 +23,7 @@ class AcercaDeActivity : AppCompatActivity() {
         val btnVolver = findViewById<Button>(R.id.buttonVolver)
 
         btnVolver.setOnClickListener {
-            startActivity(Intent(this, HomeFragment::class.java))
+            finish()
         }
 
     }

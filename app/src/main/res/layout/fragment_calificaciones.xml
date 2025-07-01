@@ -8,6 +8,7 @@
     android:padding="12dp"
     android:layout_gravity="center"
     android:gravity="center"
+    android:background="@color/gris_suave"
     tools:context=".CalificacionesFragment">
 
     <TextView

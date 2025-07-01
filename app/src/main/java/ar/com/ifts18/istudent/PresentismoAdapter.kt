@@ -13,7 +13,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.graphics.toColorInt
 
 data class AsistenciaMateria(
-    val codigo: String,
+    val nombre: String,
     val faltas: Int,
     val porcentaje: Int,
     val ausencias: List<String> = emptyList(),
@@ -44,7 +44,7 @@ class PresentismoAdapter(private val materias: MutableList<AsistenciaMateria>) :
         val materia = materias[position]
         val card = holder.itemView.findViewById<CardView>(R.id.cardRoot)
 
-        holder.tvMateria.text = materia.codigo
+        holder.tvMateria.text = materia.nombre
         holder.tvPorcentaje.text = "${materia.porcentaje}%"
         holder.tvCantidadFaltas.text = materia.faltas.toString()
         holder.tvDiasAusentes.text = materia.ausencias.joinToString(", ")
@@ -67,7 +67,7 @@ class PresentismoAdapter(private val materias: MutableList<AsistenciaMateria>) :
         }
         card.setCardBackgroundColor(bgColor.toColorInt())
 
-        val iconRes = when (materia.codigo) {
+        val iconRes = when (materia.nombre) {
             "Metodología de Pruebas de Sistema" -> R.drawable.ic_metodologia
             "Desarrollo de Aplicaciones Móviles" -> R.drawable.ic_mobile
             "Taller de Comunicación" -> R.drawable.ic_comunicacion
